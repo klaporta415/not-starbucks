@@ -121,7 +121,7 @@
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%=$GOOGLE_PLACES_KEY%>&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_PLACES_KEY']%>&libraries=places&callback=initMap"
         async defer></script>
   </body>
 </html>
