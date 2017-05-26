@@ -14,7 +14,7 @@ require 'pathname'
 require 'pg'
 require 'active_record'
 require 'logger'
-require 'dotenv'
+require 'dotenv/load' if (ENV['RUBY_ENV'] == "development" || ENV['RUBY_ENV'] == "test")
 
 require 'sinatra'
 require "sinatra/reloader" if development?
