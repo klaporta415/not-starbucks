@@ -14,9 +14,31 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Find GOOD Coffee</title>
 </head>
 <body>
+
+  <header>
+    <div id="header">
+      <h2>Find GOOD Coffee</h2>
+    </div>
+    <nav>
+      <% if current_user %>
+    <ul>
+      <li><a href="/users/<%= "#{current_user.id}"%>"><%= (User.find(session[:user_id])).username  %></a></li>
+      <li><a href="/logout">logout</a></li>
+      <li><a href="/">home</a></li>
+    </ul>
+      <% else %>
+    <ul>
+      <li><a href="/users/new">register</a></li>
+      <li><a href="/login">login</a></li>
+      <li><a href="/">home</a></li>
+    </ul>
+      <% end %>
+    </nav>
+  </header>
+
   <%= yield %>
 </body>
 </html>

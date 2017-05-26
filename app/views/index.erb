@@ -1,74 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%=$GOOGLE_PLACES_KEY%>"></script>
-	<title>Find GOOD Coffee</title>
-</head>
-<body>
-
-	<div id="map">
-		
-	</div>
-	<script type="text/javascript">
-
-		function initialize(){
-			var myHouse = new google.maps.LatLng(41.973497,-87.6601661);
-			var map = new google.maps.Map(document.getElementById('map'), {
-				center: myHouse,
-				zoom: 15,
-				scrollwheel: false
-			});
-
-			var infoWindow = new google.maps.InfoWindow();
-
-			var request = {
-				location: myHouse,
-				radius: 4000,
-				types: ['cafe']
-			};
+<p>Find good coffee on our <a href="/map">map</a> !</p>
 
 
-			// Create PlaceService, send request
-			// Handle callback with anonymous function
-			var service = new google.maps.places.PlacesService(map);
-			
-			service.nearbySearch(request, function(results, status){
-				if (status == google.maps.places.PlacesServiceStatus.OK) {
-					for (var i = 0; i < results.length; i++) {
-						var place = results[i];
-						// if successful request, place marker at that location
-						// register an event to handle click on marker
-						var marker = new google.maps.Marker({
-							map: map,
-							position: place.geometry.location
-						});
+<p>login if you'd like to save a coffee shop to your favorites</p>
 
-						google.maps.event.addListener(marker, 'click', function(){
-							infoWindow.setContent(place.name);
-							infoWindow.open(map, this);
-						});
-					}
-				}
-			});
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
-
-</body>
-</html>
-
-<!-- <script type="text/javascript">
-	function createMarker(place) {
-		var placeLoc = place.geometry.location;
-		var marker = new google.maps.Marker({
-			map: map,
-			position: place.geometry.location
-		})
-	}
-</script> -->
-
-
-
-
+<!-- link to map page -->
+<!-- login routes to profile page -->

@@ -1,3 +1,4 @@
 class CoffeeShop < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :likes
+  has_many :likers, through: :likes
 end
