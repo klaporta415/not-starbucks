@@ -22,7 +22,7 @@
     <div id="header">
       <h2>Find GOOD Coffee</h2>
     </div>
-    <nav>
+    <nav id="nav-bar">
       <% if current_user %>
     <ul>
       <li><a href="/users/<%= "#{current_user.id}"%>"><%= (User.find(session[:user_id])).username  %></a></li>

@@ -1,9 +1,10 @@
 <p>hey its your homepage, <%= current_user.try(:username) %>!</p>
-
-<ul>
+<div class="profile-page">
+<ul id="coffee-shop-list">
 <% if @liked_shops.length > 0 %>
 	<% @liked_shops.each do |shop| %>
-	<li><%= shop.name %></li>
+	<li class="coffee-shop"><a href="/coffee_shops/<%= shop.id %>"><%= shop.name %></a></li>
 	<% end %>
 <% end %>
 </ul>
+</div>

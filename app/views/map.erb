@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%=$GOOGLE_PLACES_KEY%>"></script>
+	  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%=ENV['GOOGLE_PLACES_KEY']%>"></script>
 	<title>Find GOOD Coffee</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
 			service.nearbySearch(request, function(results, status){
 				if (status == google.maps.places.PlacesServiceStatus.OK) {
 					for (var i = 0; i < results.length; i++) {
-						var place = results[i];
+						var $place = $(results[i]);
 						// if successful request, place marker at that location
 						// register an event to handle click on marker
 						var marker = new google.maps.Marker({
