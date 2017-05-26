@@ -1,8 +1,8 @@
 class CreateLikesTable < ActiveRecord::Migration
   def change
   	create_table :likes do |t|
-  		t.integer :coffee_shop_id, foreign_key: true
-  		t.integer :liker_id, foreign_key: true
+  		t.references :coffee_shop
+  		t.references :liker
 
   		t.timestamps null:false
   	end

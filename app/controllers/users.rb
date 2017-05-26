@@ -19,5 +19,14 @@ get '/logout' do
 end
 
 get '/users/:id' do 
+	@user = User.find(params[:id])
+	likes = Like.all 
+	my_likes = likes.where(liker_id: @user.id)
+	shops = my_likes.select{|like| like.coffee_shop_id }
+	@liked_shops = []
+	shops.each do |shop|
+		@liked_shops << CoffeeShop.find(shop)
+		@liked_shops
+	end
 	erb :'users/show'
 end 

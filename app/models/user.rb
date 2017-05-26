@@ -22,6 +22,13 @@ class User < ActiveRecord::Base
   def authenticate(entered_password)
   	BCrypt::Password.new(self.hashed_password) == entered_password
   end
+
+  def liked_shops
+    likes = Like.all
+    my_likes = likes.where(liker_id == self.id)
+    shops = my_likes.coffee_shop_id
+    shop_names = shops.to_a.select {|shop| shop.name}
+  end
   
 end
 

@@ -1,1 +1,9 @@
 <p>hey its your homepage, <%= current_user.try(:username) %>!</p>
+
+<ul>
+<% if @liked_shops.length > 0 %>
+	<% @liked_shops.each do |shop| %>
+	<li><%= shop.name %></li>
+	<% end %>
+<% end %>
+</ul>
