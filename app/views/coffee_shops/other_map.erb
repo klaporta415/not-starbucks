@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%=ENV['GOOGLE_PLACES_KEY']%>"></script>
+	<title>Find GOOD Coffee</title>
+</head>
+
+<div id="map">
+	
+</div>
+<body>
+	<script type="text/javascript">
+		var myLatlng = new google.maps.LatLng("<%= @lat%>","<%= @long %>");
+		var mapOptions = {
+		  zoom: 4,
+		  center: myLatlng
+		}
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+		var marker = new google.maps.Marker({
+		    position: myLatlng,
+		    title: "<%= @shop.name %>"
+		});
+
+		// To add the marker to the map, call setMap();
+		marker.setMap(map);
+	</script>
+</body>
+</html>

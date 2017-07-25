@@ -6,6 +6,8 @@ class CreateCoffeeShopsTable < ActiveRecord::Migration
   		t.string :state
   		t.string :street_address
   		t.string :website
+      t.string :latitude
+      t.string :longitude
 
   		t.timestamps null: false
   	end
