@@ -14,4 +14,4 @@ Look out for the next iteration - in Ruby on Rails.
 
 View of the map page with markers at all found coffee shops in the area:
 
-![Map Page](/map-page-view.png?raw=true "Map Page")
+![Map Page](public/map-page-view.png?raw=true "Map Page")
